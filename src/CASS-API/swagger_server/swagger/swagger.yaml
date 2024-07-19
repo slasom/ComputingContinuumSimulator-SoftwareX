@@ -1,0 +1,385 @@
+openapi: 3.0.3
+info:
+  title: C2SIMAPI - OpenAPI 3.0
+  description: C2SIM API based on the OpenAPI 3.0 specification.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: pablorm@unex.es
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about C2SIM
+  url: https://github.com/perses-org
+servers:
+- url: http://localhost:8084/
+tags:
+- name: C2SIM
+  description: Retrieve information about your simulations!
+  externalDocs:
+    description: Find out more
+    url: https://github.com/perses-org
+paths:
+  /database/user/{user_name}:
+    get:
+      tags:
+      - C2SIM
+      summary: Fecthes information about a specific user.
+      description: Fecthes information about a specific user.
+      operationId: get_user_from_database
+      parameters:
+      - name: user_name
+        in: path
+        description: Name of the user to fetch
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                xml:
+                  wrapped: true
+                items:
+                  type: object
+                  xml:
+                    name: projects
+                x-content-type: application/json
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: C2SIM
+      x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
+  /database/project/{project_name}:
+    get:
+      tags:
+      - C2SIM
+      summary: Fecthes information about a specific project.
+      description: Fecthes information about a specific project.
+      operationId: get_project_from_database
+      parameters:
+      - name: project_name
+        in: path
+        description: Name of the project to fetch
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                xml:
+                  wrapped: true
+                items:
+                  type: object
+                  xml:
+                    name: projects
+                x-content-type: application/json
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: C2SIM
+      x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
+  /database/projects/{user_name}:
+    get:
+      tags:
+      - C2SIM
+      summary: Retrieves all projects from a certain user.
+      description: Retrieves all projects from a certain user.
+      operationId: get_all_projects_from_user_from_database
+      parameters:
+      - name: user_name
+        in: path
+        description: Name of the user whose projects should be fecthed
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                xml:
+                  wrapped: true
+                items:
+                  type: object
+                  xml:
+                    name: projects
+                x-content-type: application/json
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: C2SIM
+      x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
+  /database/execution/{execution_name}:
+    get:
+      tags:
+      - C2SIM
+      summary: Fecthes information about a specific execution.
+      description: Fecthes information about a specific execution.
+      operationId: get_execution_from_database
+      parameters:
+      - name: execution_name
+        in: path
+        description: Name of the execution to fetch
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                xml:
+                  wrapped: true
+                items:
+                  type: object
+                  xml:
+                    name: projects
+                x-content-type: application/json
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: C2SIM
+      x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
+  /database/executions/{user_name}:
+    get:
+      tags:
+      - C2SIM
+      summary: Retrieves all executions from a certain user.
+      description: Retrieves all executions from a certain user.
+      operationId: get_all_executions_from_user_from_database
+      parameters:
+      - name: user_name
+        in: path
+        description: Name of the user whose executions should be fecthed
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                xml:
+                  wrapped: true
+                items:
+                  type: object
+                  xml:
+                    name: projects
+                x-content-type: application/json
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: C2SIM
+      x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
+  /download/{project_name}/{execution_name}:
+    get:
+      tags:
+        - C2SIM
+      summary: Download a ZIP file of project execution logs.
+      description: Retrieves and sends a ZIP file containing the execution logs for a specified project.
+      operationId: swagger_server.controllers.c2_sim_controller.download_files_from_execution
+      parameters:
+        - name: project_name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Name of the project.
+        - name: execution_name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Name of the execution.
+        - name: api_key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API key needed for authorization.
+      responses:
+        '200':
+          description: A ZIP file containing the execution logs.
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid request parameters.
+        '401':
+          description: Authorization information is missing or invalid.
+        '404':
+          description: The requested project or execution does not exist.
+        '500':
+          description: Internal server error.
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Paul
+        birth_date:
+          type: string
+        last_name_1:
+          type: string
+          example: Sanchez
+        last_name_2:
+          type: string
+          example: Pozo
+        nid:
+          type: string
+          example: 19283746J
+        user_name:
+          type: string
+          example: exampleuser
+        email:
+          type: string
+          example: user@example.com
+        password:
+          type: string
+          example: mypassword
+        role:
+          type: string
+          example: user
+      example:
+        last_name_1: Sanchez
+        last_name_2: Pozo
+        user_name: exampleuser
+        birth_date: 2000-01-23T04:56:07.000+00:00
+        name: Paul
+        nid: 19283746J
+        email: user@example.com
+        password: mypassword
+        role: admin
+      xml:
+        name: user
+    Project:
+      type: object
+      properties:
+        project_name:
+          type: string
+          example: exampleuser-exampleproject
+        user_name:
+          type: string
+          example: exampleuser
+        json_config:
+          type: string
+          example: https://myjsonconfig/folder/configurationFile.json
+        apk_file:
+          type: string
+          example: https://myapk/folder/myApkFile.apk
+        apk_test_file:
+          type: string
+          example: https://myapktest/folder/myApkTestFile.apk
+        creation_date:
+          type: string
+      example:
+        project_name: exampleuser-exampleproject
+        user_name: exampleuser
+        json_config: https://myjsonconfig/folder/configurationFile.json
+        apk_file: https://myapk/folder/myApkFile.apk
+        apk_test_file: https://myapktest/folder/myApkTestFile.apk
+        creation_date: 2000-01-23T04:56:07.000+00:00
+      xml:
+        name: project
+    Execution:
+      type: object
+      properties:
+        execution_name:
+          type: string
+          example: exampleuser-exampleproject-18:00:00-26-oct-2023
+        project_name:
+          type: string
+          example: exampleuser-exampleproject
+        timestamp_start_execution:
+          type: integer
+        timestamp_end_execution:
+          type: integer
+        execution_logs:
+          type: string
+          example: https://mylogs/folder/thisLog.txt
+        associated_cost:
+          type: number
+          example: 12.89
+        execution_finished:
+          type: integer
+          example: 1
+        execution_state:
+          type: string
+          example: IN PROGRESS
+      example:
+        execution_logs: https://mylogs/folder/thisLog.txt
+        timestamp_end_execution: timestamp_end_execution
+        associated_cost: 12.89
+        execution_name: exampleuser-exampleproject-18:00:00-26-oct-2023
+        execution_finished: false
+        execution_state: IN PROGRESS
+        project_name: exampleuser-exampleproject
+        timestamp_start_execution: timestamp_start_execution
+      xml:
+        name: execution
+    Payment:
+      type: object
+      properties:
+        payment_id:
+          type: integer
+          example: 32039
+        user_name:
+          type: string
+          example: exampleuser
+        project_name:
+          type: string
+          example: exampleuser-exampleproject
+        execution_name:
+          type: string
+          example: exampleuser-exampleproject-18:00:00-26-oct-2023
+        associated_cost:
+          type: number
+          example: 29.98
+      xml:
+        name: payment
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+      xml:
+        name: '##default'

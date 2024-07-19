@@ -1,0 +1,18 @@
+{
+    "name": "check-files",
+    "version": "1.0.0",
+    "description": "",
+    "main": "checkUIResults.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node checkUIResults"
+    },
+    "author": "",
+    "license": "UEX",
+    "dependencies": {
+      "fs-extra": "^9.0.1",
+      "path": "0.12.7",
+      "js-yaml": "^4.0.0"
+    }
+  }
+  

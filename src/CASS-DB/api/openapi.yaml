@@ -1,0 +1,790 @@
+openapi: 3.0.3
+info:
+  title: PersesDB - OpenAPI 3.0
+  description: This is a sample CASS DB Server based on the OpenAPI 3.0 specification.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: slasom@unex.es
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Perses
+  url: https://github.com/perses-org
+servers:
+- url: https://localhost:8081
+tags:
+- name: user
+  description: Everything about users
+  externalDocs:
+    description: Find out more
+    url: https://github.com/perses-org
+- name: project
+  description: Everything about projects
+  externalDocs:
+    description: Find out more
+    url: https://github.com/perses-org
+- name: execution
+  description: Everything about executions
+  externalDocs:
+    description: Find out more
+    url: https://github.com/perses-org
+paths:
+  /user/{user_name}:
+    get:
+      tags:
+      - user
+      summary: Get the data from the user by its name
+      description: Returns all the info from the required user
+      operationId: getUserByUsername
+      parameters:
+      - name: user_name
+        in: path
+        description: The username from the user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: User not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: User
+    put:
+      tags:
+      - user
+      summary: Updates an user by its name
+      description: Updates an user by its name
+      operationId: updateUserByUsername
+      parameters:
+      - name: user_name
+        in: path
+        description: The username from the user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Updates an user by its name
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: User not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: User
+    post:
+      tags:
+      - user
+      summary: Add a new user to Perses
+      description: Add a new user to Perses
+      operationId: addUser
+      parameters:
+      - name: user_name
+        in: path
+        description: Name of the user to create
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Add a new user to Perses
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: User
+    delete:
+      tags:
+      - user
+      summary: Deletes an existing user from the database
+      description: Deletes an existing user from the database
+      operationId: deleteUser
+      parameters:
+      - name: user_name
+        in: path
+        description: Name of user to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Invalid username value
+        "404":
+          description: User not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: User
+  /users:
+    get:
+      tags:
+      - user
+      summary: Get the data from all the users
+      description: Get the data from all the users
+      operationId: getAllUsers
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                xml:
+                  wrapped: true
+                items:
+                  type: object
+                  xml:
+                    name: projects
+                x-content-type: application/json
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: User not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: User
+  /project/{project_name}:
+    get:
+      tags:
+      - project
+      summary: Find a project by its name
+      description: Returns all the project data
+      operationId: getProjectByProjectName
+      parameters:
+      - name: project_name
+        in: path
+        description: Name of project to return its info
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Project'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Project not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Project
+    put:
+      tags:
+      - project
+      summary: Updates an existing project
+      description: Updates an existing project
+      operationId: updateProjectByName
+      parameters:
+      - name: project_name
+        in: path
+        description: Name of project to udpate
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Updates a project
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Project'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Project not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Project
+    post:
+      tags:
+      - project
+      summary: Create a new project
+      description: Create a new project
+      operationId: createProject
+      parameters:
+      - name: project_name
+        in: path
+        description: Name of project to create
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Create a new project
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Project'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Project not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Project
+  /projects:
+    get:
+      tags:
+      - project
+      summary: Returns an array of all the projects
+      description: Returns an array of all the projects
+      operationId: getAllProjects
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                xml:
+                  wrapped: true
+                items:
+                  type: object
+                  xml:
+                    name: projects
+                x-content-type: application/json
+        "404":
+          description: Projects not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Project
+  /projects/{user_name}:
+    get:
+      tags:
+      - project
+      summary: Returns an array of all projects registered in Perses from a certain
+        user
+      description: Returns an array of all projects registered in Perses from a certain
+        user
+      operationId: getProjectsByUsername
+      parameters:
+      - name: user_name
+        in: path
+        description: Username of the user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                  format: int32
+                x-content-type: application/json
+        "404":
+          description: Projects not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Project
+  /execution/{execution_name}:
+    get:
+      tags:
+      - execution
+      summary: Gets a project execution info
+      description: Gets a project execution info
+      operationId: getExecutionInfoByExecutionName
+      parameters:
+      - name: execution_name
+        in: path
+        description: Name of the execution
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Execution'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Execution not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Execution
+    put:
+      tags:
+      - execution
+      summary: Updates a project execution info by the execution name
+      description: Creates a project execution info by the execution name
+      operationId: updateExecutionInfoByExecutionName
+      parameters:
+      - name: execution_name
+        in: path
+        description: Name of the execution to update
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Updates a project execution info by the execution name
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Execution'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Execution'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Execution'
+        required: true
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Execution'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Execution not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Execution
+    post:
+      tags:
+      - execution
+      summary: Creates a project execution info
+      description: Creates a project execution info
+      operationId: createProjectExecution
+      parameters:
+      - name: execution_name
+        in: path
+        description: Name of the execution
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Creates a project execution info
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Execution'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Execution'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Execution'
+        required: true
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Execution'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Execution not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Execution
+    delete:
+      tags:
+      - execution
+      summary: Deletes a project execution info by the execution name
+      description: Deletes a project execution info by the execution name
+      operationId: deleteExecutionInfoByExecutionName
+      parameters:
+      - name: execution_name
+        in: path
+        description: Name of the execution to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Execution'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Execution not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Execution
+  /executions:
+    get:
+      tags:
+      - execution
+      summary: Gets all the executions from the existing projects
+      description: Gets all the executions from the existing projects
+      operationId: getAllExecutions
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                xml:
+                  wrapped: true
+                items:
+                  type: object
+                  xml:
+                    name: projects
+                x-content-type: application/json
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Execution not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Execution
+  /executions/{user_name}:
+    get:
+      tags:
+      - execution
+      summary: Gets all the executions of projects from a certain user
+      description: Gets all the executions of projects from a certain user
+      operationId: getAllExecutionsFromUser
+      parameters:
+      - name: user_name
+        in: path
+        description: Username of the user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Execution'
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Execution not found
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Execution
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Paul
+        birth_date:
+          type: string
+        last_name_1:
+          type: string
+          example: Sanchez
+        last_name_2:
+          type: string
+          example: Pozo
+        nid:
+          type: string
+          example: 19283746J
+        user_name:
+          type: string
+          example: exampleuser
+        email:
+          type: string
+          example: user@example.com
+        password:
+          type: string
+          example: mypassword
+        role:
+          type: string
+          example: user
+      example:
+        last_name_1: Sanchez
+        last_name_2: Pozo
+        user_name: exampleuser
+        birth_date: 2000-01-23T04:56:07.000+00:00
+        name: Paul
+        nid: 19283746J
+        email: user@example.com
+        password: mypassword
+        role: admin
+      xml:
+        name: user
+    Project:
+      type: object
+      properties:
+        project_name:
+          type: string
+          example: exampleuser-exampleproject
+        user_name:
+          type: string
+          example: exampleuser
+        json_config:
+          type: string
+          example: https://myjsonconfig/folder/configurationFile.json
+        apk_file:
+          type: string
+          example: https://myapk/folder/myApkFile.apk
+        apk_test_file:
+          type: string
+          example: https://myapktest/folder/myApkTestFile.apk
+        creation_date:
+          type: string
+      example:
+        project_name: exampleuser-exampleproject
+        user_name: exampleuser
+        json_config: https://myjsonconfig/folder/configurationFile.json
+        apk_file: https://myapk/folder/myApkFile.apk
+        apk_test_file: https://myapktest/folder/myApkTestFile.apk
+        creation_date: 2000-01-23T04:56:07.000+00:00
+      xml:
+        name: project
+    Execution:
+      type: object
+      properties:
+        execution_name:
+          type: string
+          example: exampleuser-exampleproject-18:00:00-26-oct-2023
+        project_name:
+          type: string
+          example: exampleuser-exampleproject
+        timestamp_start_execution:
+          type: integer
+        timestamp_end_execution:
+          type: integer
+        execution_logs:
+          type: string
+          example: https://mylogs/folder/thisLog.txt
+        associated_cost:
+          type: number
+          example: 12.89
+        execution_finished:
+          type: integer
+          example: 1
+        execution_state:
+          type: string
+          example: IN PROGRESS
+      example:
+        execution_logs: https://mylogs/folder/thisLog.txt
+        timestamp_end_execution: timestamp_end_execution
+        associated_cost: 12.89
+        execution_name: exampleuser-exampleproject-18:00:00-26-oct-2023
+        execution_finished: false
+        execution_state: IN PROGRESS
+        project_name: exampleuser-exampleproject
+        timestamp_start_execution: timestamp_start_execution
+      xml:
+        name: execution
+    Payment:
+      type: object
+      properties:
+        payment_id:
+          type: integer
+          example: 32039
+        user_name:
+          type: string
+          example: exampleuser
+        project_name:
+          type: string
+          example: exampleuser-exampleproject
+        execution_name:
+          type: string
+          example: exampleuser-exampleproject-18:00:00-26-oct-2023
+        associated_cost:
+          type: number
+          example: 29.98
+      xml:
+        name: payment
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+      xml:
+        name: '##default'
+  requestBodies:
+    User:
+      description: User object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/User'
+    Project:
+      description: Project object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Project'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Project'
+    Execution:
+      description: Execution object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Execution'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Execution'
+    Payment:
+      description: Project object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Payment'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Payment'

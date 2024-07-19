@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: FileUploader - OpenAPI 3.0
+  description: This is a sample File Uploader based on the OpenAPI 3.0 specification.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: slasom@unex.es
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Perses
+  url: https://github.com/perses-org
+servers:
+- url: http://localhost:8082/
+tags:
+- name: Upload
+  description: Upload your project to Perses!
+  externalDocs:
+    description: Find out more
+    url: https://github.com/perses-org
+- name: Download
+  description: Download your execution's data!
+  externalDocs:
+    description: Find out more
+    url: https://github.com/perses-org
+paths:
+  /upload/{project_name}:
+    post:
+      tags:
+      - Upload
+      summary: Uploads the necessary files for Perses from GHA.
+      description: Uploads the necessary files for Perses from GHA.
+      operationId: uploadFiles
+      parameters:
+      - name: project_name
+        in: path
+        description: Name of the project to upload
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Upload Request
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/upload_project_name_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Upload successful
+                x-content-type: text/plain
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Upload
+  /download/{project_name}/{execution_name}:
+    get:
+      tags:
+      - Download
+      summary: Download all the files related to a Perses Execution.
+      description: Download all the files related to a Perses Execution.
+      operationId: downloadFilesFromExecution
+      parameters:
+      - name: project_name
+        in: path
+        description: Name of the project containing the execution
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: execution_name
+        in: path
+        description: Name of the execution to download from Perses
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/zip: # This is for returning a zip file with the execution logs
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: File not found
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Download
+components:
+  schemas:
+    upload_project_name_body:
+      type: object
+      properties:
+        file:
+          type: array
+          items:
+            type: string
+            format: binary

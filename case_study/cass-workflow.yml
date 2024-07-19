@@ -1,0 +1,60 @@
+name: CASS Workflow
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  c2sim-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Check if local.properties exists
+        run: |
+          if [ ! -f local.properties ]; then
+            touch local.properties
+          fi
+
+      - name: Build with Gradle
+        run: ./gradlew assembleAndroidTest assembleDebug
+
+      - name: "Install dependencies"
+        run: |
+          sudo apt-get install curl 
+          sudo apt-get install jq    
+
+      - name: "Send files to Project Manager"
+        run: |
+          sudo jq '. += {"user_name": "${{ secrets.USERNAME }}","project_name": "${{ secrets.USERNAME }}-${{ github.event.repository.name }}"}' json-config.json > json-config-new.json
+          sudo mv json-config-new.json ./app/build/outputs/apk/debug
+          sudo mv ./app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk ./app/build/outputs/apk/debug
+          cd ./app/build/outputs/apk/debug
+          # Cambios de nombre
+          sudo mv app-debug.apk calidad-aire-app.apk
+          sudo mv app-debug-androidTest.apk calidad-aire-app-androidTest.apk
+          curl -X 'POST' \
+          'http://ec2-54-171-122-221.eu-west-1.compute.amazonaws.com:8082/upload/${{ secrets.USERNAME }}-${{ github.event.repository.name }}' \
+          -H 'accept: text/plain' \
+          -H 'api_key: ${{ secrets.API_KEY }}' \
+          -H 'Content-Type: multipart/form-data' \
+          -F 'file=@calidad-aire-app.apk;type=application/vnd.android.package-archive' \
+          -F 'file=@calidad-aire-app-androidTest.apk;type=application/vnd.android.package-archive' \
+          -F 'file=@json-config-new.json;type=application/json'
+          
+      - name: "Send execution request to C2SIM"
+        # Wait for file uploads and DB registry then send request
+        run: |
+          sleep 20s 
+          curl -X GET http://ec2-54-171-122-221.eu-west-1.compute.amazonaws.com:8080/launch/${{ secrets.USERNAME }}-${{ github.event.repository.name }} -H  "accept: text/plain" -H 'api_key: ${{ secrets.API_KEY }}' -H  'user_name: ${{ secrets.USERNAME }}'

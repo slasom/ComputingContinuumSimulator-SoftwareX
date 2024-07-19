@@ -1,0 +1,49 @@
+name: Workflow for Database
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  KEY_PEM: ${{ secrets.KEY_PEM }}
+  
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Show files
+        run: ls
+
+
+      - name: Delete Files and Stop Service
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            pm2 stop Database
+            sudo rm -vrf database/*
+          host: # YOUR EC2 HOST
+          user: # YOUR EC2 user
+          key: ${{ secrets.KEY_PEM }}
+
+      - name: Upload Files
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: "./*"
+          host: # YOUR EC2 HOST
+          remote: "database/"
+          port: # YOUR EC2 CONFIGURED PORT
+          user: # YOUR EC2 user
+          key: ${{ secrets.KEY_PEM }}  
+        
+
+      - name: ReStart service
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            pm2 restart Database
+          host: # YOUR EC2 HOST
+          user: # YOUR EC2 user
+          key: ${{ secrets.KEY_PEM }}

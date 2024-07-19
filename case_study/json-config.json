@@ -1,0 +1,830 @@
+{
+  "idle_time": 1,
+  "tests": [
+    {
+      "id": "test1",
+      "type": "apipecker",
+      "config": {
+        "concurrent_users": 3000,
+        "iterations": 2,
+        "delay": 500,
+        "url": "https://smartcity-air/quality/"
+      }
+    },
+    {
+      "id": "test2",
+      "type": "espresso",
+      "config": {
+        "application_id": "es.unex.airquality",
+        "log_tags": [
+          {
+            "id": "AirQualityLog"
+          },
+          {
+            "id": "DangerZoneLog"
+          },
+          {
+            "id": "GoodAreaLog"
+          }
+        ]
+      }
+    }
+  ],
+  "architecture": {
+    "microservices": [
+      {
+        "id": "air-sensor",
+        "cycles": 9950023,
+        "memory": 136681728,
+        "input": 18750,
+        "output": 4252
+      },
+      {
+        "id": "android",
+        "cycles": 24449035,
+        "memory": 393394240,
+        "input": 15000,
+        "output": 18750
+      },
+      {
+        "id": "cloud-server",
+        "cycles": 24449035,
+        "memory": 393394240,
+        "input": 15000,
+        "output": 18750
+      }
+    ],
+    "hosts": [
+      {
+        "id": "iot1",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot2",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot3",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot4",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot5",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot6",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot7",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot8",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot9",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot10",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot11",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot12",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot13",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot14",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "iot15",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "air-sensor"
+        ],
+        "mem": "1g",
+        "cpus": "1"
+      },
+      {
+        "id": "mobile1",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile2",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile3",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile4",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile5",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile6",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile7",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile8",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile9",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "mobile10",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "android"
+        ],
+        "mem": "4g",
+        "cpus": "4"
+      },
+      {
+        "id": "cloud",
+        "power": 32000000,
+        "memory": 32768,
+        "capex": 4.65,
+        "opex_cycle": 1.5906249999999998e-16,
+        "opex_memory": 0,
+        "deployed": [
+          "cloud-server"
+        ]
+      }
+    ],
+    "switches": [
+      {
+        "id": "s1",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s1",
+        "route": []
+      },
+      {
+        "id": "s2",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s2",
+        "route": []
+      },
+      {
+        "id": "s3",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s3",
+        "route": []
+      },
+      {
+        "id": "s4",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s4",
+        "route": []
+      },
+      {
+        "id": "s5",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s5",
+        "route": []
+      },
+      {
+        "id": "s6",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s6",
+        "route": []
+      },
+      {
+        "id": "s7",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s7",
+        "route": []
+      },
+      {
+        "id": "s8",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s8",
+        "route": []
+      },
+      {
+        "id": "s9",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s9",
+        "route": []
+      },
+      {
+        "id": "s10",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "s10",
+        "route": []
+      },
+      {
+        "id": "internetgateway",
+        "capex": 641,
+        "opex": 1.717875e-05,
+        "capex_cnt": 22.2,
+        "opex_cnt": 3.18125e-06,
+        "deployed": true,
+        "controller": "internetgateway",
+        "route": []
+      }
+    ],
+    "workflows": [],
+    "parameters": {
+      "control_size": 136
+    },
+    "links": [
+      {
+        "source": "s1",
+        "destination": "iot1",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s1",
+        "destination": "iot2",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s1",
+        "destination": "iot3",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s2",
+        "destination": "iot4",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s3",
+        "destination": "iot5",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s4",
+        "destination": "iot6",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s4",
+        "destination": "iot7",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s4",
+        "destination": "iot8",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s6",
+        "destination": "iot9",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s6",
+        "destination": "iot10",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s7",
+        "destination": "iot11",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s8",
+        "destination": "iot12",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s9",
+        "destination": "iot13",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s9",
+        "destination": "iot14",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s10",
+        "destination": "iot15",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s2",
+        "destination": "mobile1",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s2",
+        "destination": "mobile2",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s3",
+        "destination": "mobile3",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s3",
+        "destination": "mobile4",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s3",
+        "destination": "mobile5",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s3",
+        "destination": "mobile6",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s6",
+        "destination": "mobile7",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s7",
+        "destination": "mobile8",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s10",
+        "destination": "mobile9",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s10",
+        "destination": "mobile10",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s1",
+        "destination": "s2",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s2",
+        "destination": "s3",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s1",
+        "destination": "s4",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s4",
+        "destination": "s5",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s4",
+        "destination": "cloud",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s5",
+        "destination": "s6",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s5",
+        "destination": "s7",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s5",
+        "destination": "s8",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s8",
+        "destination": "cloud",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s8",
+        "destination": "s9",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "s9",
+        "destination": "s10",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      },
+      {
+        "source": "internetgateway",
+        "destination": "s1",
+        "latency": 2.5432181795524087e-07,
+        "capacity": 1966080000,
+        "capex": 135.63830460494057,
+        "opex": 3.3689437500000004e-07
+      }
+    ]
+  },
+  "mobile_app_installation": [
+    {
+      "app_name": "air-quality-app",
+      "application_id": "es.unex.airquality",
+      "installation_destination": [
+        "mobile1",
+        "mobile2",
+        "mobile3",
+        "mobile4",
+        "mobile5",
+        "mobile6",
+        "mobile7",
+        "mobile8",
+        "mobile9",
+        "mobile10"
+      ]
+    }
+  ],
+  "user_name": "demouser",
+  "project_name": "demouser-CASS-airquality"
+}

@@ -1,0 +1,16 @@
+{
+    "ecg": "pascal/apache",
+    "ms_api": "pascal/simple",
+    "bpr": "pascal/simple",
+    "garden-server": "pascal/simple",
+    "servidor-cloud": "pascal/apipecker",
+    "cmp": "pascal/apache",
+    "ms_sensor": "pascal/iot",
+    "humidity-sensor": "pascal/iot",
+    "sensor-aire": "pascal/iot",
+    "aes_ecg": "pascal/apache",
+    "aes_bp": "pascal/apipecker",
+    "apache": "pascal/apache",
+    "android": "pascal/android",
+    "monitor" : "pascal/monitor"
+}

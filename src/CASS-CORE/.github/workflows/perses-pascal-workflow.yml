@@ -1,0 +1,50 @@
+name: WorkFlow Perses
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  KEY_PEM: ${{ secrets.KEY_PEM }}
+  
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Show files
+        run: ls
+
+
+      - name: Delete Files and Stop Service
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            pm2 stop CASS
+            sudo rm -vrf CASS/*
+          host: "YOUR HOST HERE" 
+          user: "YOUR USER HERE"
+          key: ${{ secrets.KEY_PEM }}
+
+      - name: Upload Files
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: "./*"
+          host: "YOUR HOST HERE" 
+          remote: "CASS/"
+          port: "YOUR PORT HERE"
+          user: "YOUR USER HERE"
+          key: ${{ secrets.KEY_PEM }}  
+        
+
+      - name: ReStart service
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            sudo chmod 400 CASS/test/terraform.pem
+            pm2 restart CASS
+          host: "YOUR HOST HERE" 
+          user: "YOUR USER HERE"
+          key: ${{ secrets.KEY_PEM }}

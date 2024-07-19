@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: Perses - OpenAPI 3.0
+  description: This is a sample Perses Server based on the OpenAPI 3.0 specification.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: slasom@unex.es
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Perses
+  url: https://github.com/perses-org
+servers:
+- url: http://localhost:8080/
+tags:
+- name: project
+  description: Everything about projects
+  externalDocs:
+    description: Find out more
+    url: https://github.com/perses-org
+paths:
+  /launch/{project_name}:
+    get:
+      tags:
+      - project
+      summary: Performs the whole execution process to a Perses project.
+      description: Based on a project name, creates a local Perses project (setup) and executes the Perses workflow (launch, tests, logs and destroy). Body must contain the username.
+      operationId: launchProject
+      parameters:
+      - name: project_name
+        in: path
+        description: Name of the project to execute
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Project launched successfully
+        "404":
+          description: Project not found
+        "405":
+          description: Invalid input
+        "500":
+          description: Internal server error
+      x-swagger-router-controller: Project
+components:
+  schemas:
+    LaunchRequest:
+      type: object
+      properties:
+        user_name:
+          type: string
+      example:
+        user_name: user
+      xml:
+        name: LaunchRequest
+    Project:
+      type: object
+      properties:
+        project_name:
+          type: string
+          example: user-myproject
+        creation_date:
+          type: string
+          format: date-time
+        apk_path:
+          type: string
+        apk_test_path:
+          type: string
+        devices:
+          type: string
+        application_id:
+          type: string
+        time_wait:
+          type: string
+          example: 3m
+        log_tags:
+          type: string
+        tests:
+          type: string
+        execution_finished:
+          type: boolean
+      example:
+        execution_finished: false
+        apk_test_path: apk_test_path
+        log_tags: log_tags
+        tests: tests
+        apk_path: apk_path
+        devices: devices
+        name: user-myproject
+        creation_date: 2000-01-23T04:56:07.000+00:00
+        application_id: application_id
+        time_wait: 3m
+      xml:
+        name: project
+    ApiResponse:
+      type: string
+      xml:
+        name: '##default'
+  requestBodies:
+    Project:
+      description: Project object that needs to be added to Perses
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Project'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Project'

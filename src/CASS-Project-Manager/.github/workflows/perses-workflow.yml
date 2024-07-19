@@ -1,0 +1,45 @@
+name: WorkFlow Project Manager
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  KEY_PEM: ${{ secrets.KEY_PEM }}
+  
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Delete Files and Stop Service
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            pm2 stop ProjectManager
+            sudo rm -vrf projectmanager/*
+          host: "YOUR EC2 HOST HERE"
+          user: "YOUR EC2 USER HERE"
+          key: ${{ secrets.KEY_PEM }}
+
+      - name: Upload Files
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: "./*"
+          host: "YOUR EC2 HOST HERE"
+          remote: "projectmanager/"
+          port: "YOUR EC2 PORT HERE"
+          user: "YOUR EC2 USER HERE"
+          key: ${{ secrets.KEY_PEM }}  
+        
+
+      - name: ReStart service
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            pm2 restart ProjectManager
+          host: "YOUR EC2 HOST HERE"
+          user: "YOUR EC2 USER HERE"
+          key: ${{ secrets.KEY_PEM }}

@@ -1,0 +1,20 @@
+{
+  "name": "mysql-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "mysql": "2.18.1",
+    "axios": "^1.5.1",
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "oas3-tools": "^2.2.3"
+  },
+  "author": "",
+  "license": "ISC"
+}

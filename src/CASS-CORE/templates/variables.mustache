@@ -1,0 +1,136 @@
+variable "project_name"{
+  description = "Project Name"
+  type        = string
+  default     = "{{project_name}}"
+
+}
+
+
+variable "access_key" {
+  description = "AWS access key"
+  type        = string
+  default     = "{{access_key}}"
+}
+
+
+variable "secret_key" {
+  description = "AWS secret key"
+  type        = string
+  default     = "{{{secret_key}}}"
+}
+
+
+variable "region"{
+  description = "AWS Region"
+  type        = string
+  default     = "{{region}}"
+}
+
+
+variable "author" {
+  description = "Name of the operator. Used as a prefix to avoid name collision on resources."
+  type        = string
+  default     = "{{author}}"
+}
+
+variable "end_port"{
+  type        = string
+  default     = "{{port}}"
+}
+
+
+variable "key_path" {
+  description = "Key path for SSHing into EC2"
+  type        = string
+  default     = "{{{key_path}}}"
+}
+
+
+variable "key_name" {
+  description = "Key name for SSHing into EC2"
+  type        = string
+  default     = "{{key_name}}"
+}
+
+
+variable "ec2_username" {
+  description = "User name to log in to EC2"
+  type        = string
+  default     = "{{ec2_username}}"
+}
+
+variable "instance_type"{
+  description = "Instance AWS type"
+  type        = string
+  default     = "{{instance_type}}"
+}
+
+
+variable "ami_id"{
+  description = "AWS AMI_ID"
+  type        = string
+  default     = "{{ami_id}}"
+}
+
+
+variable "volume" {
+  description = "Volume size in GB."
+  type        = string
+  default     = "{{volume_size}}"
+}
+
+variable "apk_path" {
+  description = "Apk path for testing"
+  type        = string
+  default     = "{{{apk_path}}}"
+}
+
+variable "apk_test_path" {
+  description = "Apk path for testing with Espresso"
+  type        = string
+  default     = "{{{apk_test_path}}}"
+}
+
+variable "number_devices"{
+  description = "Numbers of Android devices to deploy."
+  type        = string
+  default     = "{{number_devices}}"
+}
+
+
+variable "time_wait"{
+  description = "Time to wait for the deployment of Android devices (1m - 1 minute, 1h - 1 hour)"
+  type        = string
+  default     = "{{time_wait}}"
+}
+
+variable "idle_time"{
+  description = "Time to wait idle after deploying the architecture"
+  type        = string
+  default     = "{{idle_time}}"
+}
+
+variable "delay"{
+  description = "Delay depending on which type of network is to be emulated (100ms, 1s, 2us...)"
+  type        = string
+  default     = "{{delay}}"
+}
+
+
+variable "mobile_devices"{  
+  description = "List containing names of mobile devices found in the architecture"
+  type        = string
+  default     = "{{mobile_devices}}"
+}
+
+variable "number_mobiles"{  
+  description = "Total number of mobile devices"
+  type        = string
+  default     = "{{number_mobiles}}"
+}
+
+variable "directory_path"{
+  description = "Directory containing the project files"
+  type        = string
+  default     = "{{{directory_path}}}"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "file-uploader-gha",
+  "version": "1.0.0",
+  "description": "This is a sample File Uploader based on the OpenAPI 3.0 specification.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@eslint/create-config": "^0.4.6",
+    "archiver": "6.0.1",
+    "aws-sdk": "^2.1472.0",
+    "axios": "^1.5.1",
+    "connect": "3.2.0",
+    "formidable": "3.5.1",
+    "js-yaml": "3.3.0",
+    "multiparty": "^4.2.3",
+    "oas3-tools": "2.2.3"
+  }
+}

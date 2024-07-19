@@ -1,0 +1,39 @@
+const fs = require('fs');
+const readline = require('readline');
+const path = require('path');
+
+let arrayString = [];
+{{#log_tags}} 
+arrayString.push("{{.}}");
+{{/log_tags}}
+
+// "devices" es ahora un string de nombres de dispositivos separados por comas
+let devices = process.argv[2];
+
+function processLineByLine(file, arrayTags) {
+    let pathFile = path.join(__dirname, 'logs', 'devices-logs', file);
+    const fileStream = fs.createReadStream(pathFile);
+
+    const readInterface = readline.createInterface({
+        input: fileStream,
+        console: false
+    });
+
+    readInterface.on('line', function(line) {
+        for (let val of arrayTags) {
+            if (line.includes(val)) {
+                fs.appendFileSync(path.join(__dirname, 'logs', 'devices-logs', "output-" + file), line.toString() + "\n");
+            }
+        }
+    });
+}
+
+// Dividir el string de dispositivos y procesar cada uno
+let deviceList = devices.split(',');
+deviceList.forEach(device => {
+    let logFileName = `log-${device}.txt`;
+    processLineByLine(logFileName, arrayString);
+    console.log("Filtering finished in " + logFileName);
+});
+
+console.log("The filtered logs have been stored in -------> /logs/devices-logs/");
