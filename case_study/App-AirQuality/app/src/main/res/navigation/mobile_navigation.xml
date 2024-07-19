@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:label="@string/menu_favorite"
+    app:startDestination="@+id/favorite">
+
+    <fragment
+        android:id="@+id/favorite"
+        android:name="es.unex.infinitetime.ui.favorite.FavoriteFragment"
+        android:label="@string/menu_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favorite_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_favorite_to_editTaskFragment"
+            app:destination="@id/editTaskFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/projects"
+        android:name="es.unex.infinitetime.ui.project.ListOfProjectsFragment"
+        android:label="@string/menu_projects"
+        tools:layout="@layout/fragment_list_of_projects" >
+        <action
+            android:id="@+id/action_projects_to_addProjectFragment"
+            app:destination="@id/addProjectFragment" />
+        <action
+            android:id="@+id/action_projects_to_listTasksFragment"
+            app:destination="@id/listTasksFragment" />
+        <action
+            android:id="@+id/action_projects_to_editProjectFragment"
+            app:destination="@id/editProjectFragment" />
+        <action
+            android:id="@+id/action_projects_to_sharedFragment"
+            app:destination="@id/sharedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/stats"
+        android:name="es.unex.infinitetime.ui.stats.StatsFragment"
+        android:label="@string/menu_stats"
+        tools:layout="@layout/fragment_stats" />
+    <fragment
+        android:id="@+id/user"
+        android:name="es.unex.infinitetime.ui.user.UserFragment"
+        android:label="@string/menu_user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="es.unex.infinitetime.ui.login.LoginFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_favorite"
+            app:destination="@id/favorite" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="es.unex.infinitetime.ui.register.RegisterFragment"
+        android:label="@string/menu_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cloudFragment"
+        android:name="es.unex.infinitetime.ui.cloud.CloudFragment"
+        android:label="@string/menu_cloud"
+        tools:layout="@layout/fragment_cloud" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="es.unex.infinitetime.ui.settings.SettingsFragment"
+        android:label="@string/txt_appbar_settings" />
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="es.unex.infinitetime.ui.task.AddTaskFragment"
+        android:label="Añadir tarea" />
+    <fragment
+        android:id="@+id/addProjectFragment"
+        android:name="es.unex.infinitetime.ui.project.AddProjectFragment"
+        android:label="Añadir proyecto"
+        tools:layout="@layout/fragment_add_project">
+        <action
+            android:id="@+id/action_addProjectFragment_to_projects"
+            app:destination="@id/projects" />
+    </fragment>
+    <fragment
+        android:id="@+id/listTasksFragment"
+        android:name="es.unex.infinitetime.ui.tabs.ListTasksFragment"
+        android:label="Lista de tareas"
+        tools:layout="@layout/fragment_list_tasks">
+        <action
+            android:id="@+id/action_listTasksFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_listTasksFragment_to_editTaskFragment"
+            app:destination="@id/editTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProjectFragment"
+        android:name="es.unex.infinitetime.ui.project.EditProjectFragment"
+        android:label="Proyecto"
+        tools:layout="@layout/fragment_edit_project">
+        <action
+            android:id="@+id/action_editProjectFragment_to_projects"
+            app:destination="@id/projects" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTaskFragment"
+        android:name="es.unex.infinitetime.ui.task.EditTaskFragment"
+        android:label="Tarea">
+        <action
+            android:id="@+id/action_editTaskFragment_to_listTasksFragment"
+            app:destination="@id/listTasksFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/sharedFragment"
+        android:name="es.unex.infinitetime.ui.shared.SharedFragment"
+        android:label="@string/menu_shared" />
+
+
+</navigation>

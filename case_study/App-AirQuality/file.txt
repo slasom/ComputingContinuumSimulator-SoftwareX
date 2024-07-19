@@ -1,0 +1,21 @@
+
+es.unex.infinitetime.CU01Unit.ProjectUnitTest:....
+es.unex.infinitetime.RoomTests.CU01.AddProjectRoomTest:.
+es.unex.infinitetime.RoomTests.CU02.AddUserRoomTest:.
+es.unex.infinitetime.RoomTests.CU04.ManageFavoritesRoomTest:.
+es.unex.infinitetime.RoomTests.CU05.ShareProjectRoomTest:.
+es.unex.infinitetime.RoomTests.CU06.ShowProjectsRoomTest:.
+es.unex.infinitetime.RoomTests.CU08.DeleteTaskRoomTest:.
+es.unex.infinitetime.RoomTests.CU09.DeleteUserRoomTest:.
+es.unex.infinitetime.RoomTests.CU10.EditTaskRoomTest:.
+es.unex.infinitetime.RoomTests.CU12.StatsProjectsRoomTest:.
+es.unex.infinitetime.RoomTests.CU13.DeleteProjectRoomTest:.
+es.unex.infinitetime.RoomTests.CU14.ShowListTaskStateRoomTest:.
+es.unex.infinitetime.RoomTests.CU15.EditUserRoomTest:.
+es.unex.infinitetime.RoomTests.CU16.EditProjectRoomTest:.
+
+Time: 0.075
+
+OK (17 tests)
+
+

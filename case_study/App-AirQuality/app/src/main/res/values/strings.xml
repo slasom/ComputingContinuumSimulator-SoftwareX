@@ -1,0 +1,185 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">InfiniteTime</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="txt_identificador">Identificador</string>
+
+    <string name="menu_favorite">Favoritas</string>
+    <string name="menu_projects">Proyectos</string>
+    <string name="menu_stats">Estadísticas</string>
+    <string name="menu_user">Usuario</string>
+    <string name="menu_list_task" tools:ignore="ExtraTranslation">Lista de Tareas</string>
+    <string name="menu_cloud">Nube</string>
+    <string name="menu_login">Iniciar sesión</string>
+    <string name="menu_register">Registro</string>
+    <string name="menu_shared">Compartir proyecto</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="txt_username_login">Introduzca su usuario</string>
+    <string name="txt_password_login">Introduzca su contraseña</string>
+    <string name="btn_login">Login</string>
+    <string name="txtEmailLogin">Email</string>
+    <string name="loading">Cargando</string>
+
+    <string name="btn_delete_user">ELIMINAR</string>
+
+    <!-- Strings related to register-->
+    <string name="txt_username_register">Introduzca un nombre de usuario</string>
+    <string name="txt_email_register">Introduzca su correo electrónico</string>
+    <string name="txt_password_register">Introduzca una contraseña</string>
+    <string name="btn_register">Registrarse</string>
+
+    <!-- Strings related to user settings -->
+    <string name="txt_username">Nombre de usuario</string>
+    <string name="txt_user_email">Email del usuario</string>
+    <string name="txt_user_password">Contraseña del usuario</string>
+    <string name="btn_edit_user">Editar</string>
+    <string name="txt_plain_edit_user">Editar Usuario:</string>
+
+    <string name="txt_cloud">Nube</string>
+    <string name="txt_settings_bar">Ajustes</string>
+    <string name="txt_theme">Tema</string>
+    <string name="btn_sync_from_cloud">Refrescar de la nube</string>
+    <string name="btn_sync_to_cloud">Enviar datos a la nube</string>
+
+    <string name="txt_appbar_settings">Ajustes</string>
+    <string name="txt_sin_definir">Sin definir</string>
+
+    <string-array name="app_theme">
+        <item>Claro</item>
+        <item>Oscuro</item>
+    </string-array>
+
+    <string name="txt_theme_light">Tema claro</string>
+    <string name="txt_theme_dark">Tema oscuro</string>
+
+    <string name="desc_fab">Boton flotante</string>
+    <string name="desc_fab_add_project">Boton flotante</string>
+
+    <!-- Raw text -->
+    <string name="raw_txt_tarea">Tarea:</string>
+    <string name="raw_txt_descripcion">Descripción:</string>
+    <string name="raw_proyecto">Proyecto</string>
+    <string name="raw_proyecto1">Proyecto 1:</string>
+    <string name="raw_nombre">Nombre</string>
+    <string name="raw_compartir">Compartir</string>
+    <string name="raw_por_hacer">Por hacer</string>
+    <string name="raw_en_proceso">En rpoceso</string>
+    <string name="raw_hechas">Hechas</string>
+    <string name="raw_registrarse">Registrarse</string>
+    <string name="raw_tareas_hechas">Tareas Hechas</string>
+    <string name="raw_tareas_en_progreso">Tareas En Progreso</string>
+    <string name="raw_tareas_no_empezadas">Tareas No Empezadas</string>
+
+
+    <!-- Strings related to tasks -->
+    <string name="txt_task_name">Nombre de la tarea</string>
+    <string name="sp_task_effort">Esfuerzo de la tarea</string>
+    <string-array name="task_effort">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+        <item>13</item>
+        <item>21</item>
+    </string-array>
+    <string name="txt_task_deadline">Fecha de la tarea</string>
+    <string name="sp_task_state">Estado de la tarea</string>
+    <string-array name="task_state">
+        <item>Por hacer</item>
+        <item>En proceso</item>
+        <item>Hecha</item>
+    </string-array>
+    <string name="txt_task_description">Descripción de la tarea</string>
+    <string name="sp_task_priority">Prioridad de la tarea</string>
+    <string-array name="task_priority">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string name="sp_task_favorite">Tarea favorita</string>
+    <string-array name="task_favorite">
+        <item>SI</item>
+        <item>NO</item>
+    </string-array>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Preferencias</string>
+    <string name="sync_header">Sincronizar</string>
+
+    <!-- Messages Preferences -->
+    <!-- LO QUE VENIA POR DEFECTO
+        <string name="signature_title">Your signature</string>
+        <string name="reply_title">Default reply action</string>
+    -->
+
+    <string name="txt_settings_name">Su nombre</string>
+
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <!--Antiguos
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    -->
+    <string name="sync_title">Obtener datos de la nube</string>
+    <string name="title_summary_off">Active la opcion para obtener todos los cambios de la nube</string>
+    <string name="attachment_title">Enviar datos a la nube</string>
+    <string name="attachment_summary_on">Desactive la opcion para no enviar los cambios a la nube</string>
+    <string name="attachment_summary_off">Active la opcion para enviar todos los cambios a la nube</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="txt_settings_appbar">Ajustes</string>
+    <string name="txt_nombre_proyecto">Nombre del Proyecto:</string>
+    <string name="txt_descripcion_proyecto">Descripción del proyecto</string>
+    <string name="txt_meter_nombre_proyecto">Introduzca el nombre</string>
+    <string name="txt_meter_descripcion_proyecto">Introduzca la descripción</string>
+    <string name="txt_projects">Proyectos</string>
+    <string name="project_name">Project Name:</string>
+    <string name="enter_project_name">Enter Project Name</string>
+    <string name="project_description">Project Description:</string>
+    <string name="enter_project_description">Enter Project Description</string>
+    <string name="statistics">Statistics</string>
+    <string name="list_of_projects">List Of Projects:</string>
+    <string name="list_of_projects2">List Of Projects:</string>
+    <string name="title_activity_edit_project">EditProjectActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="menu_close_session">Cerrar Sesión</string>
+    <string name="preference_title">Personalización</string>
+    <string name="txt_priority_task">Prioridad</string>
+    <string name="effort_txt">Esfuerzo</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="username_hint">Usuario</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="deadline_txt">Deadline</string>
+    <string name="txt_name_task">Nombre</string>
+    <string name="txt_description_task">Descripción</string>
+    <string name="txt_state_task">Estado</string>
+
+</resources>

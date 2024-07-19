@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/favorite"
+            android:icon="@android:drawable/btn_star"
+            android:title="@string/menu_favorite" />
+        <item
+            android:id="@+id/projects"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="@string/menu_projects" />
+        <item
+            android:id="@+id/stats"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="@string/menu_stats" />
+        <item
+            android:id="@+id/user"
+            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:title="@string/menu_user" />
+        <item
+            android:id="@+id/cloudFragment"
+            android:icon="@drawable/cloud"
+            android:title="@string/txt_cloud" />
+        <item
+            android:id="@+id/loginFragment"
+            android:icon="@android:drawable/btn_dialog"
+            android:title="@string/menu_close_session" />
+
+    </group>
+</menu>

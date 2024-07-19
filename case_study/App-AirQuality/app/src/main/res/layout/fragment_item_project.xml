@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:focusable="auto"
+    android:foregroundTint="#0B0A0A"
+    tools:context=".ui.project.ItemProjectFragment">
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="7dp"
+            android:background="@color/color_two" />
+
+        <TextView
+            android:id="@+id/txt_item_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Projecto:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_item_project_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:text="nombre"
+            app:layout_constraintStart_toEndOf="@+id/txt_item_project"
+            tools:layout_editor_absoluteY="36dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editProjectItemBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="129dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#DFA514"
+            android:clickable="true"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_baseline_edit_24"
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deleteProjectBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="69dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#D32F2F"
+            android:clickable="true"
+            android:foregroundGravity="center"
+            android:src="@android:drawable/ic_menu_delete"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/shareProjectItemBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#7B1FA2"
+            android:clickable="true"
+            android:foregroundGravity="center"
+            android:src="@android:drawable/ic_menu_share"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+</RelativeLayout>

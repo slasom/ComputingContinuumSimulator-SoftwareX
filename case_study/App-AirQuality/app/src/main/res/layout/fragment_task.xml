@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/empty_tall_divider"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <TextView
+            android:id="@+id/nombreTextTask"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/txt_name_task"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/nameTask"
+            android:layout_width="162dp"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/color_two" />
+
+        <TextView
+            android:id="@+id/DescripcionTextTask"
+            android:layout_width="149dp"
+            android:layout_height="27dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/txt_description_task"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/descriptionTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp"
+            android:textSize="16sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/color_two" />
+
+        <TextView
+            android:id="@+id/EstadoTextTask"
+            android:layout_width="92dp"
+            android:layout_height="26dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/txt_state_task"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+
+        <Spinner
+            android:id="@+id/spinnerTaskState"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:entries="@array/spinner_states"
+            android:minHeight="48dp"
+            android:spinnerMode="dialog"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/color_two" />
+
+        <TextView
+            android:id="@+id/priorityTextTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/txt_priority_task"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/priorityTask"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:singleLine="true"
+            android:textColorHint="#757575"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+        <View
+            android:id="@+id/view8"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/color_two" />
+
+        <TextView
+            android:id="@+id/effortTextTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/effort_txt"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinnerTaskEffort"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:entries="@array/spinner_efforts"
+            android:minHeight="48dp"
+            android:spinnerMode="dialog"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <View
+            android:id="@+id/view9"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/color_two" />
+
+        <TextView
+            android:id="@+id/deadlineTextTask"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/deadline_txt"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/dateTask"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="date"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_marginTop="0dp">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/cancelTaskBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="120dp"
+                android:layout_marginBottom="3dp"
+                android:backgroundTint="#D32F2F"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/acceptTaskBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/acceptTaskBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginBottom="3dp"
+                android:backgroundTint="#689F38"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_baseline_check_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cancelTaskBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

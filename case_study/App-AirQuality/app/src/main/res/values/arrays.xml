@@ -1,0 +1,26 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+    <string-array name="spinner_states">
+        <item>Por hacer</item>
+        <item>En progreso</item>
+        <item>Hechas</item>
+    </string-array>
+    <string-array name="spinner_efforts">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+        <item>13</item>
+        <item>21</item>
+    </string-array>
+</resources>
