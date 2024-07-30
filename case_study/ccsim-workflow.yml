@@ -1,4 +1,4 @@
-name: CASS Workflow
+name: CCSIM Workflow
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  c2sim-test:
+  ccsim-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
