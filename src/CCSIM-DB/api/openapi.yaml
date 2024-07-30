@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: PersesDB - OpenAPI 3.0
-  description: This is a sample CASS DB Server based on the OpenAPI 3.0 specification.
+  description: This is a sample CCSIM DB Server based on the OpenAPI 3.0 specification.
   termsOfService: http://swagger.io/terms/
   contact:
     email: slasom@unex.es

@@ -20,10 +20,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="C2SIMAPI - OpenAPI 3.0",
+    description="CCSIM - OpenAPI 3.0",
     author_email="",
     url="",
-    keywords=["Swagger", "C2SIMAPI - OpenAPI 3.0"],
+    keywords=["Swagger", "CCSIM - OpenAPI 3.0"],
     install_requires=REQUIRES,
     packages=find_packages(),
     package_data={'': ['swagger/swagger.yaml']},
@@ -31,6 +31,6 @@ setup(
     entry_points={
         'console_scripts': ['swagger_server=swagger_server.__main__:main']},
     long_description="""\
-    C2SIM API based on the OpenAPI 3.0 specification.
+    CCSIM API based on the OpenAPI 3.0 specification.
     """
 )

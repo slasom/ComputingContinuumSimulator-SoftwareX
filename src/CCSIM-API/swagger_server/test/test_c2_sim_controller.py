@@ -8,8 +8,8 @@ from six import BytesIO
 from swagger_server.test import BaseTestCase
 
 
-class TestC2SIMController(BaseTestCase):
-    """C2SIMController integration test stubs"""
+class TestCCSIMController(BaseTestCase):
+    """CCSIMController integration test stubs"""
 
     def test_get_all_executions_from_database(self):
         """Test case for get_all_executions_from_database

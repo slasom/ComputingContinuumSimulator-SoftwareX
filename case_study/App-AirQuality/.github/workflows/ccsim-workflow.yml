@@ -53,7 +53,7 @@ jobs:
           -F 'file=@calidad-aire-app-androidTest.apk;type=application/vnd.android.package-archive' \
           -F 'file=@json-config-new.json;type=application/json'
           
-      - name: "Send execution request to C2SIM"
+      - name: "Send execution request to CCSIM"
         # Wait for file uploads and DB registry then send request
         run: |
           sleep 20s 

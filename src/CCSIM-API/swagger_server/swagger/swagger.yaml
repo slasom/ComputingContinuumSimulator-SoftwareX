@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  title: C2SIMAPI - OpenAPI 3.0
-  description: C2SIM API based on the OpenAPI 3.0 specification.
+  title: CCSIM - OpenAPI 3.0
+  description: CCSIM API based on the OpenAPI 3.0 specification.
   termsOfService: http://swagger.io/terms/
   contact:
     email: pablorm@unex.es
@@ -10,12 +10,12 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.11
 externalDocs:
-  description: Find out more about C2SIM
+  description: Find out more about CCSIM
   url: https://github.com/perses-org
 servers:
 - url: http://localhost:8084/
 tags:
-- name: C2SIM
+- name: CCSIM
   description: Retrieve information about your simulations!
   externalDocs:
     description: Find out more
@@ -24,7 +24,7 @@ paths:
   /database/user/{user_name}:
     get:
       tags:
-      - C2SIM
+      - CCSIM
       summary: Fecthes information about a specific user.
       description: Fecthes information about a specific user.
       operationId: get_user_from_database
@@ -55,12 +55,12 @@ paths:
           description: Invalid input
         "500":
           description: Internal server error
-      x-swagger-router-controller: C2SIM
+      x-swagger-router-controller: CCSIM
       x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
   /database/project/{project_name}:
     get:
       tags:
-      - C2SIM
+      - CCSIM
       summary: Fecthes information about a specific project.
       description: Fecthes information about a specific project.
       operationId: get_project_from_database
@@ -91,12 +91,12 @@ paths:
           description: Invalid input
         "500":
           description: Internal server error
-      x-swagger-router-controller: C2SIM
+      x-swagger-router-controller: CCSIM
       x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
   /database/projects/{user_name}:
     get:
       tags:
-      - C2SIM
+      - CCSIM
       summary: Retrieves all projects from a certain user.
       description: Retrieves all projects from a certain user.
       operationId: get_all_projects_from_user_from_database
@@ -127,12 +127,12 @@ paths:
           description: Invalid input
         "500":
           description: Internal server error
-      x-swagger-router-controller: C2SIM
+      x-swagger-router-controller: CCSIM
       x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
   /database/execution/{execution_name}:
     get:
       tags:
-      - C2SIM
+      - CCSIM
       summary: Fecthes information about a specific execution.
       description: Fecthes information about a specific execution.
       operationId: get_execution_from_database
@@ -163,12 +163,12 @@ paths:
           description: Invalid input
         "500":
           description: Internal server error
-      x-swagger-router-controller: C2SIM
+      x-swagger-router-controller: CCSIM
       x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
   /database/executions/{user_name}:
     get:
       tags:
-      - C2SIM
+      - CCSIM
       summary: Retrieves all executions from a certain user.
       description: Retrieves all executions from a certain user.
       operationId: get_all_executions_from_user_from_database
@@ -199,12 +199,12 @@ paths:
           description: Invalid input
         "500":
           description: Internal server error
-      x-swagger-router-controller: C2SIM
+      x-swagger-router-controller: CCSIM
       x-openapi-router-controller: swagger_server.controllers.c2_sim_controller
   /download/{project_name}/{execution_name}:
     get:
       tags:
-        - C2SIM
+        - CCSIM
       summary: Download a ZIP file of project execution logs.
       description: Retrieves and sends a ZIP file containing the execution logs for a specified project.
       operationId: swagger_server.controllers.c2_sim_controller.download_files_from_execution
