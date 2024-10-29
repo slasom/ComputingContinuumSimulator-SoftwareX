@@ -32,6 +32,147 @@ The Project Manager microservice is responsible for managing project creation an
 
 The Database microservice stores all relevant data related to CCSIM. It maintains a structured record of all projects and their associated executions, enabling easy retrieval and management of important data. The Database ensures data integrity and accessibility throughout the simulation lifecycle.
 
+## Installation & Deployment Guide
+
+### Prerequisites
+
+- Node.js (LTS version recommended)
+- MySQL 8.0 or higher
+- Python 3.5.2
+- npm (comes with Node.js)
+- pip3 (Python package manager)
+
+### 1. Database Setup
+
+First, create a MySQL database named "perses" and set up the required tables:
+
+```sql
+-- Users Table
+CREATE TABLE `users` (
+  `name` varchar(255) DEFAULT NULL,
+  `last_name_1` varchar(255) DEFAULT NULL,
+  `last_name_2` varchar(255) DEFAULT NULL,
+  `nid` varchar(255) DEFAULT NULL,
+  `birth_date` date DEFAULT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `api_key` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`user_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Projects Table
+CREATE TABLE `projects` (
+  `project_name` varchar(255) NOT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `json_config` varchar(255) DEFAULT NULL,
+  `apk_file` varchar(255) DEFAULT NULL,
+  `apk_test_file` varchar(255) DEFAULT NULL,
+  `creation_date` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`project_name`),
+  KEY `user_name` (`user_name`),
+  CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `users` (`user_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Executions Table
+CREATE TABLE `executions` (
+  `execution_name` varchar(255) NOT NULL,
+  `project_name` varchar(255) DEFAULT NULL,
+  `ms_start_execution` int DEFAULT NULL,
+  `ms_end_execution` int DEFAULT NULL,
+  `devices_logs` varchar(255) DEFAULT NULL,
+  `associated_cost` float(9,2) DEFAULT NULL,
+  `execution_finished` tinyint(1) DEFAULT NULL,
+  `execution_state` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`execution_name`),
+  KEY `project_name` (`project_name`),
+  CONSTRAINT `executions_ibfk_1` FOREIGN KEY (`project_name`) REFERENCES `projects` (`project_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+After creating the database and tables, deploy the database API:
+
+```bash
+cd src/CCSIM-DB
+npm install
+npm run start
+```
+
+The database API will be available at `http://localhost:8081`
+
+### 2. CCSIM Core
+
+Deploy the core component:
+
+```bash
+cd src/CCSIM-CORE
+npm install
+npm run start
+```
+
+The core service will be available at `http://localhost:8080`
+
+### 3. Project Manager
+
+Deploy the project manager:
+
+```bash
+cd src/CCSIM-Project-Manager
+npm install
+npm run start
+```
+
+The project manager will be available at `http://localhost:8082`
+
+### 4. CCSIM API
+
+#### Installation
+
+```bash
+cd src/CCSIM-API
+pip3 install -r requirements.txt
+```
+
+#### Running the Server
+
+```bash
+python3 -m swagger_server
+```
+
+The API will be available at:
+- Swagger UI: `http://localhost:8084/ui/`
+- Swagger JSON: `http://localhost:8084/swagger.json`
+
+#### Running Tests
+
+To run integration tests:
+
+```bash
+pip install tox
+tox
+```
+
+## Verification
+
+To verify your installation:
+
+1. Check that all services are running on their respective ports:
+   - Database API: Port 8081
+   - CCSIM Core: Port 8080
+   - Project Manager: Port 8082
+   - CCSIM API: Port 8084
+
+2. Access the Swagger UI at `http://localhost:8084/ui/` to test the API endpoints
+
+## Troubleshooting
+
+Common issues and their solutions:
+
+- Port conflicts: Ensure no other services are running on ports 8080, 8081, 8082 and 8084
+- Database connection issues: Verify MySQL is running and the "perses" database exists
+- Missing dependencies: Run `npm install` or `pip3 install -r requirements.txt` again
+
 ## Requirements
 
 For using CCSIM, you need to register in order to get a username and API key. To register, send an email to slasom@unex.es.
