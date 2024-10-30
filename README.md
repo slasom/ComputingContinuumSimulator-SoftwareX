@@ -36,6 +36,7 @@ The Database microservice stores all relevant data related to CCSIM. It maintain
 
 ### Prerequisites
 
+- AWS Account
 - Node.js (LTS version recommended)
 - MySQL 8.0 or higher
 - Python 3.5.2
