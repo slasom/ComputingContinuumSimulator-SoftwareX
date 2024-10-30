@@ -42,6 +42,35 @@ The Database microservice stores all relevant data related to CCSIM. It maintain
 - npm (comes with Node.js)
 - pip3 (Python package manager)
 
+### API Keys Setup
+
+At `src/CCSIM-CORE/s3Operations.js`, set up your S3 keys:
+
+```javascript
+// This is for creating the S3 object
+const s3 = new AWS.S3({
+    accessKeyId: "" /*  YOUR IAM USER KEY HERE */,
+    secretAccessKey:
+        "" /* YOUR IAM USER SECRET KEY HERE */,
+    region: "" /* YOUR AWS REGION NAME HERE */,
+    Bucket: "" /* YOUR AWS BUCKET NAME HERE */,
+});
+```
+
+Do the same for `src/CCSIM-Project-Manager/service/UploadService.js`:
+
+```javascript
+// S3 constants definition
+const s3 = new AWS.S3({
+  accessKeyId: "",  /* required  # Put your iam user key */
+  secretAccessKey: "", /* required   # Put your iam user secret key */
+  region: "", /* required   # Put your region name */
+  Bucket: ""     /* required      # Put your bucket name */
+});
+```
+
+Add your RSA Private Key in a file named `src/CCSIM-CORE/test/terraform.pem`.
+
 ### 1. Database Setup
 
 First, create a MySQL database named "perses" and set up the required tables:
