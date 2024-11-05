@@ -1,8 +1,8 @@
-# CCSIM: A Cloud Continuum Simulator as a Service
+# CCSIM: A Computing Continuum Simulator as a Service
 
 ## Overview
 
-CCSIM (A Cloud Continuum Simulator as a Service) is a sophisticated simulation tool designed to evaluate the Quality of Service (QoS) of applications within Cloud Continuum architectures. Offered as Software as a Service (SaaS), CCSIM facilitates the deployment of virtualized, highly customizable environments for running comprehensive tests and simulations. By leveraging CCSIM, users can simulate real-world conditions to assess the performance and reliability of their IoT applications before deployment in production environments.
+CCSIM (A Computing Continuum Simulator as a Service) is a sophisticated simulation tool designed to evaluate the Quality of Service (QoS) of applications within Computing Continuum architectures. Offered as Software as a Service (SaaS), CCSIM facilitates the deployment of virtualized, highly customizable environments for running comprehensive tests and simulations. By leveraging CCSIM, users can simulate real-world conditions to assess the performance and reliability of their IoT applications before deployment in production environments.
 
 ## Repository Structure
 
