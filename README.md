@@ -1,4 +1,4 @@
-# CCSIM: A Computing Continuum Simulator as a Service
+# CCSIM: Computing Continuum Simulator
 
 ## Overview
 
