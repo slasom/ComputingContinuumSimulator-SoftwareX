@@ -13,11 +13,12 @@ Each experiment evaluated the full CCSIM workflow, which includes the following 
 3.  **Execution** – Running tests within the simulated environment.
 4.  **Log Collection** – Retrieving logs and performance data for analysis.
 
-### Basic Plan (vCPU: 96 and RAM: 192 GB)
+
+### Enterprise Plan (vCPU: 192 and RAM: 768 GB)
 - **15** IoT devices
-- **45** mobile devices
+- **192** mobile devices
 - **10** edge nodes/switches
-- **1** cloud instances
+- **2** cloud instances
 
 ### Pro Plan (vCPU: 128 and RAM: 512 GB)
 - **15** IoT devices
@@ -25,11 +26,11 @@ Each experiment evaluated the full CCSIM workflow, which includes the following 
 - **10** edge nodes/switches
 - **1** cloud instances
 
-### Enterprise Plan (vCPU: 192 and RAM: 768 GB)
+### Basic Plan (vCPU: 96 and RAM: 192 GB)
 - **15** IoT devices
-- **192** mobile devices
+- **45** mobile devices
 - **10** edge nodes/switches
-- **2** cloud instances
+- **1** cloud instances
 
 Each experiment evaluated the full CCSIM workflow, which includes **Initialization, Deployment, Execution, and Log Collection** stages.
 
