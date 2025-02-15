@@ -14,25 +14,22 @@ Each experiment evaluated the full CCSIM workflow, which includes the following 
 4.  **Log Collection** – Retrieving logs and performance data for analysis.
 
 ### Basic Plan (vCPU: 96 and RAM: 192 GB)
-- **X** switches
-- **X** microservices
-- **X** mobile devices
-- **X** edge nodes
-- **X** cloud instances
+- **15** IoT devices
+- **45** mobile devices
+- **10** edge nodes/switches
+- **1** cloud instances
 
 ### Pro Plan (vCPU: 128 and RAM: 512 GB)
-- **X** switches
-- **X** microservices
-- **X** mobile devices
-- **X** edge nodes
-- **X** cloud instances
+- **15** IoT devices
+- **120** mobile devices
+- **10** edge nodes/switches
+- **1** cloud instances
 
 ### Enterprise Plan (vCPU: 192 and RAM: 768 GB)
-- **X** switches
-- **X** microservices
-- **X** mobile devices
-- **X** edge nodes
-- **X** cloud instances
+- **15** IoT devices
+- **192** mobile devices
+- **10** edge nodes/switches
+- **2** cloud instances
 
 Each experiment evaluated the full CCSIM workflow, which includes **Initialization, Deployment, Execution, and Log Collection** stages.
 
@@ -100,13 +97,5 @@ This figure shows the average execution time for each **workflow stage** in CCSI
 
 - **Deployment Stage Dominance**: The deployment phase accounts for approximately **82% of the total runtime**, primarily due to the time required for AWS EC2 instance provisioning and container deployment. Although higher pricing plans provide more resources, the virtualization tools used are not fully optimized for scaling large deployments, leading to increased deployment times as the number of devices grows.
 
-- **Consistency Across Experiments**: Despite differences in plan configurations, CCSIM maintained simulation runtimes within the range of **28–40 minutes**, demonstrating predictable performance at scale.
+ 
 
-## Importance of Consistency for Developers
-
-For developers integrating CCSIM into their workflows, predictable and stable simulation runtimes offer several advantages:
-
-- **Reliable Testing Pipelines**: Ensuring that tests complete within expected time frames allows seamless integration with CI/CD processes.
-- **Scalable Evaluation**: Developers can confidently scale their simulations without facing unpredictable delays.
-
-This validation confirms that CCSIM is capable of supporting large-scale simulations while maintaining execution times that remain within a reasonable and predictable range.
