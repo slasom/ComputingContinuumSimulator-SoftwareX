@@ -42,6 +42,7 @@ Each experiment evaluated the full CCSIM workflow, which includes **Initializati
 ### **1. Runtime Consistency Over Multiple Iterations – Enterprise Plan**
 
 📌 **Image:** `enteprise-plan.png`  
+![Pro Plan Iterations](figures/enteprise-plan.png) 
 📊 **Description:**  
 This figure shows the execution time of the **Enterprise Plan** across **five iterations** to verify simulator stability.
 
@@ -55,7 +56,7 @@ This figure shows the execution time of the **Enterprise Plan** across **five it
 
 ### **2. Runtime Consistency Over Multiple Iterations – Pro Plan**
 
-📌 **Image:** `PRO-plan.png` 
+📌 **Image:** `pro-plan.png` 
 ![Pro Plan Iterations](figures/PRO-plan.png) 
 📊 **Description:**  
 This figure presents the same evaluation as the **Enterprise Plan**, but for the **Pro Plan**.
@@ -71,6 +72,7 @@ This figure presents the same evaluation as the **Enterprise Plan**, but for the
 ### **3. Runtime Consistency Over Multiple Iterations – Basic Plan**
 
 📌 **Image:** `basic-plan.png`  
+![Pro Plan Iterations](figures/basic-plan.png) 
 📊 **Description:**  
 This figure shows execution time stability for the **Basic Plan** across **five iterations**.
 
@@ -82,7 +84,8 @@ This figure shows execution time stability for the **Basic Plan** across **five 
 
 ### **4. Execution Time Across Different Pricing Plans**
 
-📌 **Image:** `pricingplans.png`  
+📌 **Image:** `pricingplans.png` 
+![Pro Plan Iterations](figures/pricingplans.png)  
 📊 **Description:**  
 This figure shows the average execution time for each **workflow stage** in CCSIM across different **pricing plans** (**Basic, Pro, and Enterprise**).
 
