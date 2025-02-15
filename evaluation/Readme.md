@@ -96,6 +96,7 @@ This figure shows the average execution time for each **workflow stage** in CCSI
 ### Key Observations
 
 - **Deployment Stage Dominance**: The deployment phase accounts for approximately **82% of the total runtime**, primarily due to the time required for AWS EC2 instance provisioning and container deployment. Although higher pricing plans provide more resources, the virtualization tools used are not fully optimized for scaling large deployments, leading to increased deployment times as the number of devices grows.
+- **Consistency Across Experiments**: Despite differences in plan configurations, CCSIM maintained simulation runtimes within the range of 28–40 minutes, demonstrating predictable performance at scale.
 
  
 
