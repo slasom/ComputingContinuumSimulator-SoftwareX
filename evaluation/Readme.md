@@ -55,7 +55,8 @@ This figure shows the execution time of the **Enterprise Plan** across **five it
 
 ### **2. Runtime Consistency Over Multiple Iterations – Pro Plan**
 
-📌 **Image:** `PRO-plan.png`  
+📌 **Image:** `PRO-plan.png` 
+![](evaluation/figures/PRO-plan.png?raw=true) 
 📊 **Description:**  
 This figure presents the same evaluation as the **Enterprise Plan**, but for the **Pro Plan**.
 
